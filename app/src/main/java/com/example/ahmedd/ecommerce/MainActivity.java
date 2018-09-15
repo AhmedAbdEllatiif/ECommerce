@@ -3,6 +3,8 @@ package com.example.ahmedd.ecommerce;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,8 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.example.ahmedd.ecommerce.R;
 
-public class MainActivity extends AppCompatActivity
+import com.example.ahmedd.ecommerce.Adapters.DicountCouponAdapter;
+import com.example.ahmedd.ecommerce.Model.ItemView;
+
+import java.util.ArrayList;
+
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -23,23 +33,17 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                activity, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        setupRecyclerViewDiscountCoupon();
+        ImageView discountBook_img = findViewById(R.id.discountBook_img);
     }
 
     @Override
@@ -97,5 +101,23 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void setupRecyclerViewDiscountCoupon(){
+        ArrayList<ItemView> itemViews = new ArrayList<>();
+        DicountCouponAdapter adapter;
+        TextView txtDiscountCoupon  = findViewById(R.id.txtDiscountCoupon);
+        RecyclerView discountCoupon_RC = findViewById(R.id.discountCoupon_RC);
+        discountCoupon_RC.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
+
+        for (int i=0; i<50; i++){
+            ItemView itemView = new ItemView("Hot Summer Nights",R.drawable.summer_image);
+
+            itemViews.add(itemView);
+        }
+
+         adapter = new DicountCouponAdapter(itemViews,activity);
+        discountCoupon_RC.setAdapter(adapter);
+
     }
 }
