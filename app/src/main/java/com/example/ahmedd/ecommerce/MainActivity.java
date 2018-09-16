@@ -2,24 +2,19 @@ package com.example.ahmedd.ecommerce;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.ahmedd.ecommerce.R;
 
-import com.example.ahmedd.ecommerce.Adapters.DicountCouponAdapter;
+import com.example.ahmedd.ecommerce.Adapters.HomeAdapter;
 import com.example.ahmedd.ecommerce.Model.ItemView;
 
 import java.util.ArrayList;
@@ -107,7 +102,7 @@ public class MainActivity extends BaseActivity
 
     private void setupRecyclerViewDiscountCoupon(){
         ArrayList<ItemView> itemViews = new ArrayList<>();
-        DicountCouponAdapter adapter;
+        HomeAdapter adapter;
         TextView txtDiscountCoupon  = findViewById(R.id.txtDiscountCoupon);
         RecyclerView discountCoupon_RC = findViewById(R.id.discountCoupon_RC);
         discountCoupon_RC.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
@@ -118,7 +113,7 @@ public class MainActivity extends BaseActivity
             itemViews.add(itemView);
         }
 
-         adapter = new DicountCouponAdapter(itemViews,activity);
+         adapter = new HomeAdapter(itemViews,activity);
         discountCoupon_RC.setAdapter(adapter);
 
     }

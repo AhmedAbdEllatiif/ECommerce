@@ -14,12 +14,12 @@ import com.example.ahmedd.ecommerce.R;
 
 import java.util.ArrayList;
 
-public class DicountCouponAdapter extends RecyclerView.Adapter<DicountCouponAdapter.ViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     ArrayList<ItemView> itemViews;
     Context context;
 
-    public DicountCouponAdapter(ArrayList<ItemView> itemViews, Context context) {
+    public HomeAdapter(ArrayList<ItemView> itemViews, Context context) {
         this.itemViews = itemViews;
         this.context = context;
     }
@@ -40,7 +40,7 @@ public class DicountCouponAdapter extends RecyclerView.Adapter<DicountCouponAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
       View v = LayoutInflater.from(parent.getContext())
-              .inflate(R.layout.discountcoupon_cv,parent,false);
+              .inflate(R.layout.homecoupon_cv,parent,false);
         return new ViewHolder(v);
     }
 

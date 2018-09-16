@@ -6,6 +6,10 @@ public class ItemView {
     String hotSummer;
     int summerImg;
 
+    public ItemView(int summerImg) {
+        this.summerImg = summerImg;
+    }
+
     public ItemView(String hotSummer, int summerImg) {
         this.hotSummer = hotSummer;
         this.summerImg = summerImg;
