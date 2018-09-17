@@ -2,6 +2,7 @@ package com.example.ahmedd.ecommerce;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ahmedd.ecommerce.Adapters.HomeAdapter;
+import com.example.ahmedd.ecommerce.Fragment.Home;
 import com.example.ahmedd.ecommerce.Model.ItemView;
 
 import java.util.ArrayList;
@@ -38,8 +40,16 @@ public class MainActivity extends BaseActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        setupRecyclerViewDiscountCoupon();
-        ImageView discountBook_img = findViewById(R.id.discountBook_img);
+
+
+
+        Fragment fragment = new Home();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container,fragment)
+                .commit();
+
+
     }
 
     @Override
@@ -100,21 +110,5 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-    private void setupRecyclerViewDiscountCoupon(){
-        ArrayList<ItemView> itemViews = new ArrayList<>();
-        HomeAdapter adapter;
-        TextView txtDiscountCoupon  = findViewById(R.id.txtDiscountCoupon);
-        RecyclerView discountCoupon_RC = findViewById(R.id.discountCoupon_RC);
-        discountCoupon_RC.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
 
-        for (int i=0; i<50; i++){
-            ItemView itemView = new ItemView("Hot Summer Nights",R.drawable.summer_image);
-
-            itemViews.add(itemView);
-        }
-
-         adapter = new HomeAdapter(itemViews,activity);
-        discountCoupon_RC.setAdapter(adapter);
-
-    }
 }

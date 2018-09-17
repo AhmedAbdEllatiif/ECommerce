@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView android:id="@+id/discountCardView"
+<android.support.v7.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/discountCardView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".5"
+        app:layout_constraintGuide_percent=".75"
         />
 
 <ImageView
@@ -34,7 +35,101 @@
     app:layout_constraintTop_toTopOf="parent"
     />
 
+        <TextView
+            android:id="@+id/offerNewCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offers to get New Car"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carImg"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            tools:ignore="RtlCompat" />
+
+<ImageView
+    android:id="@+id/satisfied"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/satisfied"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/carImg"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="5dp"
+    tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/discountPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5% Upto 20% Discount"
+            app:layout_constraintTop_toBottomOf="@id/offerNewCar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="5dp"
+            tools:ignore="RtlCompat"
+            />
+
+
+        <TextView
+            android:id="@+id/avaibleIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/location"
+            android:text="Availble in"
+            android:drawablePadding="3dp"
+            tools:ignore="RtlCompat"
+            android:gravity="center"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/discountPercent"
+            />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   1800$"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avaibleIn"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/btnAllDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="15sp"
+            android:text="All Details"
+            android:textSize="8sp"
+            android:textColor="@color/white"
+            android:background="@drawable/btnshape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avaibleIn"
+            android:layout_marginEnd="5dp"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/btnBuy"
+            android:layout_width="60sp"
+            android:layout_height="15sp"
+            android:text="Buy"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/btnshape"
+            app:layout_constraintEnd_toStartOf="@id/btnAllDetails"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avaibleIn"
+            android:layout_marginEnd="5dp"
+            tools:ignore="RtlCompat" />
+
     </android.support.constraint.ConstraintLayout>
+
+
 
 
 </android.support.v7.widget.CardView>

@@ -16,10 +16,10 @@ import com.example.ahmedd.ecommerce.R;
 
 import java.util.ArrayList;
 
-public class FragmentNew extends BaseFragment {
+public class CouponFragment extends BaseFragment {
 
 
-    public FragmentNew() {
+    public CouponFragment() {
         // Required empty public constructor
     }
 
