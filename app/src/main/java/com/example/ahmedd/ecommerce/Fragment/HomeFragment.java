@@ -16,12 +16,12 @@ import com.example.ahmedd.ecommerce.Model.ItemView;
 import com.example.ahmedd.ecommerce.R;
 import java.util.ArrayList;
 
-public class Home extends BaseFragment {
+public class HomeFragment extends BaseFragment {
 
     private View view;
     private RecyclerView discountCoupon_RC;
 
-    public Home() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
