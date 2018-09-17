@@ -7,9 +7,10 @@
     app:menu="@menu/navigation"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:showIn="@layout/content_app"
+
     xmlns:tools="http://schemas.android.com/tools"
-    app:itemIconTint="@color/white"
+    app:itemIconTint="@color/color"
+    app:itemTextColor="@color/color"
     >
 
 
