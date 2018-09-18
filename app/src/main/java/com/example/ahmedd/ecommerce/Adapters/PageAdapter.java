@@ -1,32 +1,45 @@
 package com.example.ahmedd.ecommerce.Adapters;
 
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
-import com.example.ahmedd.ecommerce.Fragment.CouponFragment;
-import com.example.ahmedd.ecommerce.Fragment.HomeFragment;
+import java.util.ArrayList;
 
 public class PageAdapter extends FragmentPagerAdapter {
 
-    private int numberOfTabs;
+    private ArrayList<Fragment> fragments = new ArrayList<>();
+    private ArrayList<String> titles = new ArrayList<>();
 
-    public PageAdapter(FragmentManager fm, int numberOfTabs) {
+
+    public PageAdapter(FragmentManager fm) {
         super(fm);
-        this.numberOfTabs = numberOfTabs;
+
+    }
+
+
+    public void AddFragmentPage(Fragment fragment, String title ){
+
+        fragments.add(fragment);
+        titles.add(title);
+
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position){
-            case(0) : return new HomeFragment();
-            case(1) : return new CouponFragment();
-            default : return null;
-            }
+       return fragments.get(position);
     }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles.get(position);
+    }
+
+
 
     @Override
     public int getCount() {
-        return numberOfTabs;
+        return 3;
     }
 }
