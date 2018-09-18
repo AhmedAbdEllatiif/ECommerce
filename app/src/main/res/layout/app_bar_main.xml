@@ -31,51 +31,11 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/color"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/color"
-            app:tabTextColor="@color/fadeWhite">
 
-           <!-- <android.support.design.widget.TabItem
-                android:id="@+id/tab_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                style="@style/MyCustomTabLayout"
-                />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tab_coupons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Coupons"
-                style="@style/MyCustomTabLayout"
-                />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tab_notifiactions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Notifiactions"
-                style="@style/MyCustomTabLayout"
-                />-->
-
-        </android.support.design.widget.TabLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-  <!--  <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />-->
+
 
     <include layout="@layout/content_main" />
 

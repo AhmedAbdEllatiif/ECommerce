@@ -1,60 +1,60 @@
 package com.example.ahmedd.ecommerce;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
 import android.widget.TextView;
-import com.example.ahmedd.ecommerce.Adapters.PageAdapter;
-import com.example.ahmedd.ecommerce.Fragment.CouponFragment;
-import com.example.ahmedd.ecommerce.Fragment.HomeFragment;
-import com.example.ahmedd.ecommerce.Fragment.NotificationsFragmnet;
+
+import com.example.ahmedd.ecommerce.Adapters.HomeAdapter;
+import com.example.ahmedd.ecommerce.Model.ItemView;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends BaseActivity {
 
-    private TabLayout tabLayout;
+
     private AppBarLayout appBarLayout;
-    private ViewPager viewPager ;
-    private PagerAdapter adapter;
-    private  BottomNavigationView bottomNavigationView;
     private NavigationView navigationView;
     private TabItem tab_home;
     private TabItem tab_coupons;
     private TabItem tab_noti;
     private Toolbar toolbar;
     private TextView my_title;
+    private RecyclerView discountCoupon_RC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        discountCoupon_RC = (RecyclerView) findViewById(R.id.discountCoupon_RC);
+        setupRecyclerViewDiscountCoupon();
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
 
        /* tab_home = (TabItem) findViewById(R.id.tab_home);
         tab_coupons = (TabItem) findViewById(R.id.tab_coupons);
         tab_noti = (TabItem) findViewById(R.id.tab_notifiactions);*/
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        tabLayout.setupWithViewPager(viewPager);
 
-        setupViewPager(viewPager);
+
+
 
         //setupToolBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -75,53 +75,14 @@ public class MainActivity extends BaseActivity {
         navigationView.setNavigationItemSelectedListener(listenerNavigation);
         navigationView.setCheckedItem(R.id.nav_home);
 
-        //setupBottomNav.
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navBar);
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-        bottomNavigationView.setSelectedItemId(R.id.home);
 
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getText().equals("Coupons")){
-                    my_title.setText("Coupons");
 
-                    navigationView.setCheckedItem(R.id.nav_coupons);
-                    bottomNavigationView.setSelectedItemId(R.id.coupons);
-                    }
-
-                    else if (tab.getText().equals("Home")){
-                    my_title.setText("Home");
-
-                    navigationView.setCheckedItem(R.id.nav_home);
-                    bottomNavigationView.setSelectedItemId(R.id.home);
-                }
-
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
 
 
     }
 
-    public void setupViewPager(ViewPager viewPager){
-        PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
-        adapter.AddFragmentPage(new HomeFragment(), "Home");
-        adapter.AddFragmentPage(new CouponFragment(), "Coupons");
-        adapter.AddFragmentPage(new NotificationsFragmnet(), "Notifications");
-        viewPager.setAdapter(adapter);
-    }
+
 
     @Override
     public void onBackPressed() {
@@ -168,23 +129,12 @@ public class MainActivity extends BaseActivity {
 
             if (id == R.id.nav_home) {
                 my_title.setText("Home");
-                Fragment fragment = new HomeFragment();
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container,fragment)
-                        .commit();
-
-                bottomNavigationView.setSelectedItemId(R.id.home);
+                Intent intent = new Intent(MainActivity.this,CouponActivity.class);
+                startActivity(intent);
 
             } else if (id == R.id.nav_coupons) {
                 my_title.setText("Coupons");
-                Fragment fragment = new CouponFragment();
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container,fragment)
-                        .commit();
 
-                bottomNavigationView.setSelectedItemId(R.id.coupons);
 
             } else if (id == R.id.nav_slideshow) {
 
@@ -203,40 +153,20 @@ public class MainActivity extends BaseActivity {
         }
     };
 
+    private void setupRecyclerViewDiscountCoupon(){
 
-    //listener of Bottom Navigation bar
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        ArrayList<ItemView> itemViews = new ArrayList<>();
+        discountCoupon_RC.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
 
-        Fragment fragment;
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-            switch (item.getItemId()){
-                case (R.id.home) : fragment = new HomeFragment();
-                navigationView.setCheckedItem(R.id.nav_home);
-                my_title.setText("Home");
-                
-                break;
-
-                case (R.id.coupons) : fragment = new CouponFragment();
-                    navigationView.setCheckedItem(R.id.nav_coupons);
-                    my_title.setText("Coupons");
-
-                    break;
-            }
-
-
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container,fragment)
-                    .commit();
-
-            return true;
+        for (int i=0; i<50; i++){
+            ItemView itemView = new ItemView("Hot Summer Nights",R.drawable.summer_image);
+            itemViews.add(itemView);
         }
-    };
 
+
+        HomeAdapter adapter = new HomeAdapter(itemViews, activity);
+        discountCoupon_RC.setAdapter(adapter);
+    }
 
 
 
