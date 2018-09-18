@@ -4,13 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.TabItem;
-import android.support.design.widget.TabLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,12 +13,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.widget.TextView;
-
 import com.example.ahmedd.ecommerce.Adapters.HomeAdapter;
 import com.example.ahmedd.ecommerce.Model.ItemView;
-
 import java.util.ArrayList;
 
 
@@ -32,9 +24,6 @@ public class MainActivity extends BaseActivity {
 
     private AppBarLayout appBarLayout;
     private NavigationView navigationView;
-    private TabItem tab_home;
-    private TabItem tab_coupons;
-    private TabItem tab_noti;
     private Toolbar toolbar;
     private TextView my_title;
     private RecyclerView discountCoupon_RC;
@@ -47,14 +36,6 @@ public class MainActivity extends BaseActivity {
         discountCoupon_RC = (RecyclerView) findViewById(R.id.discountCoupon_RC);
         setupRecyclerViewDiscountCoupon();
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-
-
-       /* tab_home = (TabItem) findViewById(R.id.tab_home);
-        tab_coupons = (TabItem) findViewById(R.id.tab_coupons);
-        tab_noti = (TabItem) findViewById(R.id.tab_notifiactions);*/
-
-
-
 
         //setupToolBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -74,11 +55,6 @@ public class MainActivity extends BaseActivity {
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(listenerNavigation);
         navigationView.setCheckedItem(R.id.nav_home);
-
-
-
-
-
 
     }
 
@@ -148,11 +124,11 @@ public class MainActivity extends BaseActivity {
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
-
             return true;
         }
     };
 
+    //setup the Recyecler view of discount coupons in the MainActivity
     private void setupRecyclerViewDiscountCoupon(){
 
         ArrayList<ItemView> itemViews = new ArrayList<>();

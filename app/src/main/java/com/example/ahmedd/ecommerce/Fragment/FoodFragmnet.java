@@ -12,10 +12,10 @@ import com.example.ahmedd.ecommerce.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NotificationsFragmnet extends Fragment {
+public class FoodFragmnet extends Fragment {
 
 
-    public NotificationsFragmnet() {
+    public FoodFragmnet() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class NotificationsFragmnet extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notifications_fragmnet, container, false);
+        return inflater.inflate(R.layout.fragment_food, container, false);
     }
 
 }

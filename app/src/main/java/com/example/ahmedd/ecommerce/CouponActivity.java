@@ -10,7 +10,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,8 +17,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.ahmedd.ecommerce.Adapters.PageAdapter;
-import com.example.ahmedd.ecommerce.Fragment.CouponFragment;
-import com.example.ahmedd.ecommerce.Fragment.NotificationsFragmnet;
+import com.example.ahmedd.ecommerce.Fragment.ActivityFragment;
+import com.example.ahmedd.ecommerce.Fragment.AutoFragment;
+import com.example.ahmedd.ecommerce.Fragment.BeautyFragment;
+import com.example.ahmedd.ecommerce.Fragment.NewFragment;
+import com.example.ahmedd.ecommerce.Fragment.FoodFragmnet;
 
 public class CouponActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,9 +42,7 @@ public class CouponActivity extends BaseActivity
          frameLayout = (FrameLayout) findViewById(R.id.fragment_container_coupon);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
-       /* tab_home = (TabItem) findViewById(R.id.tab_home);
-        tab_coupons = (TabItem) findViewById(R.id.tab_coupons);
-        tab_noti = (TabItem) findViewById(R.id.tab_notifiactions);*/
+
         viewPager = (ViewPager) findViewById(R.id.view_pager_coupon);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -177,9 +177,11 @@ public class CouponActivity extends BaseActivity
 
     public void setupViewPager(ViewPager viewPager){
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
-        adapter.AddFragmentPage(new CouponFragment(), "Home");
-        adapter.AddFragmentPage(new CouponFragment(), "Coupons");
-        adapter.AddFragmentPage(new NotificationsFragmnet(), "Notifications");
+        adapter.AddFragmentPage(new NewFragment(), "New");
+        adapter.AddFragmentPage(new FoodFragmnet(), "Food");
+        adapter.AddFragmentPage(new BeautyFragment(), "Beauty");
+        adapter.AddFragmentPage(new ActivityFragment(), "Activity");
+        adapter.AddFragmentPage(new AutoFragment(), "Auto");
         viewPager.setAdapter(adapter);
     }
 }

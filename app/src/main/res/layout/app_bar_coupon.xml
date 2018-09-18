@@ -38,10 +38,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/color"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/color"
-            app:tabTextColor="@color/fadeWhite">
+            android:background="@color/tabs_bg_color"
+            app:tabIndicatorColor="@color/tabs_color"
+            app:tabSelectedTextColor="@color/tabs_color"
+            app:tabTextColor="@color/tabs_txt_color"
+            app:tabMode="scrollable"
+            >
 
             <!-- <android.support.design.widget.TabItem
                  android:id="@+id/tab_home"
