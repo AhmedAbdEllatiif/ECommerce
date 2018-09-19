@@ -54,7 +54,6 @@ public class MainActivity extends BaseActivity {
         //setupNavigation //navigation inside drawer
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(listenerNavigation);
-        navigationView.setCheckedItem(R.id.nav_home);
 
     }
 

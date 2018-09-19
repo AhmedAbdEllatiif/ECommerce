@@ -10,11 +10,14 @@ import android.support.v4.view.ViewPager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ahmedd.ecommerce.Adapters.PageAdapter;
@@ -49,6 +52,7 @@ public class CouponActivity extends BaseActivity
 
         setupViewPager(viewPager);
 
+
         //setupToolBar
         toolbar = (Toolbar) findViewById(R.id.toolbar_coupon);
         my_title_coupon = (TextView) findViewById(R.id.my_title_coupon);
@@ -70,7 +74,7 @@ public class CouponActivity extends BaseActivity
         //setupBottomNav.
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navbottom_coupon);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -102,6 +106,15 @@ public class CouponActivity extends BaseActivity
         });
 
 
+        ImageView home_toolbar = (ImageView) findViewById(R.id.home_toolbar);
+        home_toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CouponActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
