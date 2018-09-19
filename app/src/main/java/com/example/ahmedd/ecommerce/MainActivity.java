@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         my_title = (TextView) findViewById(R.id.my_title);
         setSupportActionBar(toolbar);
-        my_title.setText(toolbar.getTitle());
+        my_title.setText(R.string.home);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         //setupDrawer
@@ -104,17 +104,12 @@ public class MainActivity extends BaseActivity {
             int id = item.getItemId();
 
             if (id == R.id.nav_home) {
-                my_title.setText("Home");
                 Intent intent = new Intent(MainActivity.this,CouponActivity.class);
                 startActivity(intent);
 
             } else if (id == R.id.nav_coupons) {
                 my_title.setText("Coupons");
 
-
-            } else if (id == R.id.nav_slideshow) {
-
-            } else if (id == R.id.nav_manage) {
 
             } else if (id == R.id.nav_share) {
 
