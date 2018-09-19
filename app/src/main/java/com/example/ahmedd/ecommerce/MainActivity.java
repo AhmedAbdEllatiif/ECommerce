@@ -28,18 +28,25 @@ public class MainActivity extends BaseActivity {
     private TextView my_title;
     private RecyclerView discountCoupon_RC;
 
+    private void findViewByItsID(){
+
+        discountCoupon_RC = (RecyclerView) findViewById(R.id.discountCoupon_RC);
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        my_title = (TextView) findViewById(R.id.my_title);
+    }
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        discountCoupon_RC = (RecyclerView) findViewById(R.id.discountCoupon_RC);
+        findViewByItsID();
         setupRecyclerViewDiscountCoupon();
-        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        
 
         //setupToolBar
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        my_title = (TextView) findViewById(R.id.my_title);
+       
         setSupportActionBar(toolbar);
         my_title.setText(R.string.home);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -102,12 +109,12 @@ public class MainActivity extends BaseActivity {
             // Handle navigation view item clicks here.
             int id = item.getItemId();
 
-            if (id == R.id.nav_home) {
+            if (id == R.id.nav_coupons) {
                 Intent intent = new Intent(MainActivity.this,CouponActivity.class);
                 startActivity(intent);
                 finish();
 
-            } else if (id == R.id.nav_coupons) {
+            } else if (id == R.id.nav_dash) {
                 my_title.setText("Coupons");
 
 

@@ -5,7 +5,7 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/location"
-        android:title="@string/home"
+        android:title="@string/location"
         />
 
     <item

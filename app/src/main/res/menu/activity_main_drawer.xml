@@ -5,11 +5,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_coupons"
             android:icon="@drawable/collections"
             android:title="@string/coupons" />
         <item
-            android:id="@+id/nav_coupons"
+            android:id="@+id/nav_dash"
             android:icon="@drawable/ic_dashboard_black_24dp"
             android:title="Dash" />
 
@@ -20,7 +20,8 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Share"
+                />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"

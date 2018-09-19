@@ -20,13 +20,7 @@
         android:background="@drawable/summer_image"
         />
 
-        <android.support.constraint.Guideline
-            android:id="@+id/guideLine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".82"
-            />
+
         <TextView
             android:id="@+id/txtSummerNights"
             android:layout_width="wrap_content"
@@ -35,7 +29,8 @@
             android:drawableStart="@drawable/summer_icon"
             android:drawablePadding="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideLine"
+            app:layout_constraintTop_toBottomOf="@id/summerImg"
+            app:layout_constraintBottom_toBottomOf="@id/summerImg"
             android:layout_marginStart="10dp"
             tools:ignore="RtlCompat"
             android:gravity="bottom"

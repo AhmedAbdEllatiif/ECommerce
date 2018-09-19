@@ -35,27 +35,38 @@ public class CouponActivity extends BaseActivity
     private FrameLayout frameLayout;
     private BottomNavigationView bottomNavigationView;
     private TextView my_title_coupon;
+    private Toolbar toolbar;
+    private  ImageView home_toolbar;
+    private  NavigationView navigationView;
+
+    private void findViewByItsID(){
+
+        frameLayout = (FrameLayout) findViewById(R.id.fragment_container_coupon);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_coupon);
+        viewPager = (ViewPager) findViewById(R.id.view_pager_coupon);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_coupon);
+        my_title_coupon = (TextView) findViewById(R.id.my_title_coupon);
+        home_toolbar = (ImageView) findViewById(R.id.home_toolbar);
+        navigationView = (NavigationView) findViewById(R.id.nav_view_coupon);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navbottom_coupon);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupon);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_coupon);
-        setSupportActionBar(toolbar);
-
-         frameLayout = (FrameLayout) findViewById(R.id.fragment_container_coupon);
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
 
-        viewPager = (ViewPager) findViewById(R.id.view_pager_coupon);
+
+        findViewByItsID();
+
+        //setup the ViewPager and TabLayout
         tabLayout.setupWithViewPager(viewPager);
-
         setupViewPager(viewPager);
 
 
         //setupToolBar
-        toolbar = (Toolbar) findViewById(R.id.toolbar_coupon);
-        my_title_coupon = (TextView) findViewById(R.id.my_title_coupon);
         setSupportActionBar(toolbar);
         my_title_coupon.setText(R.string.discount_coupons);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -68,11 +79,9 @@ public class CouponActivity extends BaseActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_coupon);
-        navigationView.setNavigationItemSelectedListener(this);
 
-        //setupBottomNav.
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navbottom_coupon);
+        //setup Navigations
+        navigationView.setNavigationItemSelectedListener(this);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
 
@@ -106,7 +115,7 @@ public class CouponActivity extends BaseActivity
         });
 
 
-        ImageView home_toolbar = (ImageView) findViewById(R.id.home_toolbar);
+
         home_toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,7 +138,7 @@ public class CouponActivity extends BaseActivity
     }
 
 
-
+    //Listeners for the drawer
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -180,4 +189,6 @@ public class CouponActivity extends BaseActivity
         adapter.AddFragmentPage(new AutoFragment(), "Auto");
         viewPager.setAdapter(adapter);
     }
+
+
 }
