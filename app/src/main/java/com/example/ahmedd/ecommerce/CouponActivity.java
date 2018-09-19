@@ -1,5 +1,6 @@
 package com.example.ahmedd.ecommerce;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -122,8 +123,10 @@ public class CouponActivity extends BaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera_coupon) {
-            // Handle the camera action
+        if (id == R.id.nav_home_coupon) {
+            Intent intent = new Intent(CouponActivity.this,MainActivity.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_gallery_coupon) {
 
         } else if (id == R.id.nav_slideshow_coupon) {

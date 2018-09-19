@@ -106,6 +106,7 @@ public class MainActivity extends BaseActivity {
             if (id == R.id.nav_home) {
                 Intent intent = new Intent(MainActivity.this,CouponActivity.class);
                 startActivity(intent);
+                finish();
 
             } else if (id == R.id.nav_coupons) {
                 my_title.setText("Coupons");
