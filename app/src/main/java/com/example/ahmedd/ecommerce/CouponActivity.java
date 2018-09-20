@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -38,6 +39,7 @@ public class CouponActivity extends BaseActivity
     private Toolbar toolbar;
     private  ImageView home_toolbar;
     private  NavigationView navigationView;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
 
     private void findViewByItsID(){
 
@@ -46,10 +48,11 @@ public class CouponActivity extends BaseActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar_coupon);
         viewPager = (ViewPager) findViewById(R.id.view_pager_coupon);
         toolbar = (Toolbar) findViewById(R.id.toolbar_coupon);
-        my_title_coupon = (TextView) findViewById(R.id.my_title_coupon);
+       // my_title_coupon = (TextView) findViewById(R.id.my_title_coupon);
         home_toolbar = (ImageView) findViewById(R.id.home_toolbar);
         navigationView = (NavigationView) findViewById(R.id.nav_view_coupon);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navbottom_coupon);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
     }
 
     @Override
@@ -64,11 +67,11 @@ public class CouponActivity extends BaseActivity
         //setup the ViewPager and TabLayout
         tabLayout.setupWithViewPager(viewPager);
         setupViewPager(viewPager);
-
+        collapsingToolbarLayout.setTitle("Discount Coupons");
 
         //setupToolBar
         setSupportActionBar(toolbar);
-        my_title_coupon.setText(R.string.discount_coupons);
+       // my_title_coupon.setText(R.string.discount_coupons);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 

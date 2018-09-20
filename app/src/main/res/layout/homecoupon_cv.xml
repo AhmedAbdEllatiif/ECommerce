@@ -4,8 +4,7 @@
     android:id="@+id/summerCardView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardElevation="20dp"
-    app:contentPadding="7dp"
+        app:contentPadding="7dp"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -15,9 +14,10 @@
 
     <ImageView
         android:id="@+id/summerImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200sp"
+        android:layout_height="120dp"
         android:background="@drawable/summer_image"
+        android:scaleType="fitXY"
         />
 
 

@@ -13,8 +13,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Adapter;
 import android.widget.TextView;
 import com.example.ahmedd.ecommerce.Adapters.HomeAdapter;
+import com.example.ahmedd.ecommerce.Adapters.PlacesAdapter;
 import com.example.ahmedd.ecommerce.Model.ItemView;
 import java.util.ArrayList;
 
@@ -27,6 +29,8 @@ public class MainActivity extends BaseActivity {
     private Toolbar toolbar;
     private TextView my_title;
     private RecyclerView discountCoupon_RC;
+    private RecyclerView recycler_places;
+    private PlacesAdapter placesAdapter;
 
     private void findViewByItsID(){
 
@@ -43,7 +47,7 @@ public class MainActivity extends BaseActivity {
 
         findViewByItsID();
         setupRecyclerViewDiscountCoupon();
-        
+        setupRecyclerViewPlaces();
 
         //setupToolBar
        
@@ -137,7 +141,7 @@ public class MainActivity extends BaseActivity {
         discountCoupon_RC.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
 
         for (int i=0; i<50; i++){
-            ItemView itemView = new ItemView("Hot Summer Nights",R.drawable.summer_image);
+            ItemView itemView = new ItemView(R.drawable.summer_image,"Hot Summer Nights",null);
             itemViews.add(itemView);
         }
 
@@ -146,7 +150,37 @@ public class MainActivity extends BaseActivity {
         discountCoupon_RC.setAdapter(adapter);
     }
 
+    private void setupRecyclerViewPlaces(){
 
+
+
+        ArrayList<Integer> imgsPlaces = new ArrayList<>();
+        imgsPlaces.add(R.drawable.food_icon);
+        imgsPlaces.add(R.drawable.beauty_icon);
+        imgsPlaces.add(R.drawable.hotels_icon);
+        imgsPlaces.add(R.drawable.service_icon);
+        imgsPlaces.add(R.drawable.attraction_icon);
+
+        ArrayList<String> namePlaces = new ArrayList<>();
+        namePlaces.add("Food & Drinks");
+        namePlaces.add("Beauty & Fitness");
+        namePlaces.add("Hotels & WorldWide");
+        namePlaces.add("Service & Retail");
+        namePlaces.add("Attractiom & Laisure");
+
+        ArrayList<ItemView> itemViews = new ArrayList<>();
+
+        for (int i=0; i<imgsPlaces.size();i++){
+
+            ItemView itemView = new ItemView(namePlaces.get(i),imgsPlaces.get(i));
+            itemViews.add(itemView);
+        }
+        recycler_places = findViewById(R.id.recycler_places);
+        recycler_places.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
+        placesAdapter = new PlacesAdapter(itemViews,activity);
+        recycler_places.setAdapter(placesAdapter);
+
+    }
 
 
 }

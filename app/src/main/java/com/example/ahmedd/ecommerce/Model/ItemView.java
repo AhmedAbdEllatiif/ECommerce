@@ -3,16 +3,30 @@ package com.example.ahmedd.ecommerce.Model;
 public class ItemView {
 
 
-    String hotSummer;
-    int summerImg;
+    String hotSummer , placeText,txt;
+    int summerImg , placeImg;
 
     public ItemView(int summerImg) {
         this.summerImg = summerImg;
     }
 
-    public ItemView(String hotSummer, int summerImg) {
-        this.hotSummer = hotSummer;
+    public ItemView(int summerImg, String hotSummer, String txt ) {
         this.summerImg = summerImg;
+        this.hotSummer =hotSummer;
+        this.txt = txt;
+    }
+
+    public ItemView(String placeText, int placeImg) {
+        this.placeText = placeText;
+        this.placeImg = placeImg;
+    }
+
+    public String getPlaceText() {
+        return placeText;
+    }
+
+    public int getPlaceImg() {
+        return placeImg;
     }
 
     public String getHotSummer() {

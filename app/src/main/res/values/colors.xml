@@ -8,5 +8,6 @@
     <color name="fadeWhite">#c7ffffff</color>
     <color name="tabs_txt_color">#96999b</color>
     <color name="tabs_bg_color">#f6f6f6</color>
+    <color name="gray">#ddd</color>
 
 </resources>

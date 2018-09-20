@@ -13,9 +13,11 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Large"
             >
 
 <ImageView
@@ -50,7 +52,7 @@
                         app:layout_constraintGuide_percent=".6"
                         />
 
-                    <TextView
+                 <!--   <TextView
                         android:id="@+id/my_title_coupon"
                         android:text="Title"
                         android:layout_width="wrap_content"
@@ -60,7 +62,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         android:textColor="@color/white"
-                        />
+                        />-->
 
 
                     <ImageView
